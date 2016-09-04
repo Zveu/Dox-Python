@@ -1,0 +1,111 @@
+
+#	~Dox.py By Zveu
+import base64
+import os 
+import socket 
+import subprocess 
+import time 
+import signal 
+import sys
+import struct 
+import glob 
+from string import *
+from sys import argv
+print(" ")
+print("  Dox tool by Zveu")
+print(" ")
+print("If you dont know a section put N/A")
+print(" ")
+print("Input 2 to create a dox")
+print("Input 1 to view a dox")
+hm = raw_input('|> ')
+if hm == '1':
+	print('View a dox')
+	fl = raw_input('File Directory: ')
+	doxfile = open(fl, 'r')
+	doxshit = doxfile.read()
+	pwrrr = raw_input('Dox password: ')
+	pwrd = base64.b64encode(pwrrr)
+	if find(doxshit, pwrd) == -1:
+		print("Wrong password")
+		exit()
+	else:
+		print ('Good')
+		gg = base64.b64decode(doxshit)
+		print gg
+else:
+	if hm == '2':
+		print('          ~Make a dox~')
+	passwd = raw_input('Password key for dox: ')
+	pw64 = base64.b64encode(passwd)
+	print("Password set.")
+	title = raw_input('Dox title(NAME): ')
+	name = raw_input('Full name: ')
+	f = open(title + '-Dox','w')
+	f.write('\n')
+	f.write('~~~Dox on ')
+	f.write(title)
+	f.write('~~~')
+	f.write('\n')
+	f.write('\n')
+	f.write('########### Name: ')
+	f.write(name)
+	f.write('\n')
+	age = raw_input('Age: ')
+	f.write('############ Age: ')
+	f.write(age)
+	f.write('\n')
+	hight = raw_input('Hight: ')
+	f.write('########## Hight: ')
+	f.write(hight)
+	f.write('\n')
+	weight = raw_input('Weight: ')
+	f.write('######### Weight: ')
+	f.write(weight)
+	f.write('\n')
+	haircolor = raw_input('Hair Color: ')
+	f.write('##### Hair Color: ')
+	f.write(haircolor)
+	f.write('\n')
+	eyecolor = raw_input('Eye Color: ')
+	f.write('###### Eye Color: ')
+	f.write(eyecolor)
+	f.write('\n')
+	DOB = raw_input('Date of birth: ')
+	f.write('############ DOB: ')
+	f.write(DOB)
+	f.write('\n')
+	address = raw_input('Address: ')
+	f.write('######## Address: ')
+	f.write(address)
+	f.write('\n')
+	phone = raw_input('Phone Number: ')
+	f.write('######## Phone #: ')
+	f.write(phone)
+	f.write('\n')
+	ip = raw_input('IP address: ')
+	f.write('############# IP: ')
+	f.write(ip)
+	f.write('\n')
+	f.write('\n')
+	reason = raw_input('Reason?: ')
+	f.write('##### REASON FOR DOX ##### ')
+	f.write('\n')
+	f.write('  ~')
+	f.write(reason)
+	f.write('\n')
+	f.close()
+	doxfilename = (title + '-Dox')
+	thedox = open(doxfilename, 'r')
+	datdox = thedox.read()
+	en = base64.b64encode(datdox)
+	fkkk= open(title + '-Dox','w')
+	fkkk.write(en)
+	fkkk.write('\n')
+	fkkk.write('#')
+	fkkk.write(pw64)
+	fkkk.write('\n')
+	fkkk.close()
+
+exit()
+
